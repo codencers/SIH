@@ -147,7 +147,7 @@ def chatbot(request):
         translate_to = request.POST.get("translate_to", "").strip()
 
         try:
-            model = genai.GenerativeModel("gemini-1.5-flash")
+            model = genai.GenerativeModel("gemini-2.0-flash")
 
             if pdf_file and pdf_file.size > 0:
                 # Read the PDF bytes fully BEFORE re-opening with fitz
@@ -221,4 +221,5 @@ def download_file(request, file_name):
     except Exception as e:
         messages.error(request, f"Download error: {str(e)}")
         return redirect('dashboard')
+
 
