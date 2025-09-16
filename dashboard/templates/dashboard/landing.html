@@ -1,0 +1,67 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title %}Welcome - Supabase Dashboard{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body text-center p-5">
+                <div class="mb-4">
+                    <i class="fas fa-cloud-upload-alt" style="font-size: 4rem; color: #667eea;"></i>
+                </div>
+                <h1 class="display-4 fw-bold mb-4">Welcome to Supabase Dashboard</h1>
+                <p class="lead mb-4">
+                    A modern file management system with AI-powered assistance. 
+                    Upload, manage, and organize your files with ease.
+                </p>
+                
+                <div class="row text-start">
+                    <div class="col-md-4 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-file-upload text-primary me-3" style="font-size: 2rem;"></i>
+                            <div>
+                                <h5>File Upload</h5>
+                                <small class="text-muted">Upload files directly to Supabase storage</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-download text-success me-3" style="font-size: 2rem;"></i>
+                            <div>
+                                <h5>File Management</h5>
+                                <small class="text-muted">View, download, and delete your files</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-robot text-info me-3" style="font-size: 2rem;"></i>
+                            <div>
+                                <h5>AI Assistant</h5>
+                                <small class="text-muted">Get help with AI-powered chatbot</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'dashboard' %}" class="btn btn-primary btn-lg me-3">
+                            <i class="fas fa-tachometer-alt me-2"></i>Go to Dashboard
+                        </a>
+                        <a href="{% url 'chatbot' %}" class="btn btn-outline-primary btn-lg">
+                            <i class="fas fa-robot me-2"></i>Chat with AI
+                        </a>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="btn btn-primary btn-lg">
+                            <i class="fas fa-sign-in-alt me-2"></i>Get Started
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
